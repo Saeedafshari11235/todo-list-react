@@ -6,7 +6,7 @@ export default class InputContainer extends Component {
   render() {
     return (
       <div className='input-container'>
-        <input type='text'/>
+        <input type='text' placeholder='Add your Todos here'/>
         <button className='add-todo'><IoMdAdd size={17} color='white'/></button>
       </div>
     )
