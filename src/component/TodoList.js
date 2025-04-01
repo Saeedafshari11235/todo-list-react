@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import InputContainer from "./InputContainer";
 import "./TodoList.css";
+import Todo from "./Todo";
 
 export default class TodoList extends Component {
   constructor(props) {
@@ -12,15 +13,18 @@ export default class TodoList extends Component {
     this.setTodoValue = this.setTodoValue.bind(this);
     this.addTodo = this.addTodo.bind(this);
   }
+
   setTodoValue(event) {
     this.setState({ todoValue: event.target.value });
   }
+
   addTodo() {
     let todoList = [];
     todoList.push({ text: this.state.todoValue, completed: false });
     this.setState({ todoList: todoList });
     console.log(todoList);
   }
+  
   render() {
     return (
       <div className="todo-list">
@@ -30,9 +34,9 @@ export default class TodoList extends Component {
           addTodo={this.addTodo}
         ></InputContainer>
         <div className="todo-container">
-            {this.state.todoList.map((item)=>{
-                return(<div>{item.text}</div>)
-            })}
+          {this.state.todoList.map((item) => (
+            <Todo {...item}></Todo>
+          ))}
         </div>
       </div>
     );
