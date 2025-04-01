@@ -12,6 +12,7 @@ export default class TodoList extends Component {
     };
     this.setTodoValue = this.setTodoValue.bind(this);
     this.addTodo = this.addTodo.bind(this);
+    this.removeTodo = this.removeTodo.bind(this);
   }
 
   setTodoValue(event) {
@@ -21,15 +22,22 @@ export default class TodoList extends Component {
   addTodo() {
     let todoList = this.state.todoList;
     todoList.push({ text: this.state.todoValue, completed: false });
-    this.setState((prev)=>{
-        return ({
-            ...prev,
-            todoList: todoList
-        })
+    this.setState((prev) => {
+      return {
+        ...prev,
+        todoList: todoList,
+      };
     });
-    console.log(todoList);
   }
-  
+
+  removeTodo(text) {
+    this.setState((prev) => {
+      return {
+        todoList: prev.todoList.filter((item) => item.text !== text),
+      };
+    });
+  }
+
   render() {
     return (
       <div className="todo-list">
@@ -40,7 +48,10 @@ export default class TodoList extends Component {
         ></InputContainer>
         <div className="todo-container">
           {this.state.todoList.map((item) => (
-            <Todo {...item}></Todo>
+            <Todo
+              {...item}
+              removeTodo={() => this.removeTodo(item.text)}
+            ></Todo>
           ))}
         </div>
       </div>

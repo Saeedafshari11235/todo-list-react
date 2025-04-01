@@ -7,7 +7,9 @@ export default class Todo extends Component {
     return (
       <div className={`todo ${this.props.completed ? "done" : null}`}>
         <p>{this.props.text}</p>
-        <FaTrashCan size={17} />
+        <button className="remove-todo" onClick={this.props.removeTodo}>
+          <FaTrashCan size={17}/>
+        </button>
       </div>
     );
   }
