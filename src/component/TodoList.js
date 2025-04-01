@@ -3,6 +3,13 @@ import InputContainer from "./InputContainer";
 import "./TodoList.css";
 
 export default class TodoList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todoValue: "",
+      todoList: [],
+    };
+  }
   render() {
     return (
       <div className="todo-list">
