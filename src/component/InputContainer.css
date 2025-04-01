@@ -1,0 +1,23 @@
+.input-container {
+    margin-top: 0.75rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+input {
+    font-size: 1.5rem;
+    padding: 0 1rem;
+    border-radius: 0.5rem;
+    outline: none;
+}
+
+input:focus {
+    border: solid 2px #4c00ff;
+}
+
+.add-todo {
+    padding: 0.5rem;
+    background-color: #a200ff;
+    border-radius: 0.5rem;
+}
