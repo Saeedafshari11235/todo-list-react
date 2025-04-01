@@ -9,6 +9,7 @@
     font-size: 1.3rem;
     border-radius: 1rem;
     transition: 0.3s;
+    margin-top: 0.5rem;
 }
 
 .todo svg {
@@ -32,4 +33,14 @@
 
 .done svg {
     color: white;
+}
+
+.remove-todo {
+    border: none;
+    outline: none;
+    transition: 0.3s;
+}
+
+.todo:hover .remove-todo{
+    background-color: #a200ff;
 }
