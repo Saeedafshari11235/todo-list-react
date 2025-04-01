@@ -19,9 +19,14 @@ export default class TodoList extends Component {
   }
 
   addTodo() {
-    let todoList = [];
+    let todoList = this.state.todoList;
     todoList.push({ text: this.state.todoValue, completed: false });
-    this.setState({ todoList: todoList });
+    this.setState((prev)=>{
+        return ({
+            ...prev,
+            todoList: todoList
+        })
+    });
     console.log(todoList);
   }
   
